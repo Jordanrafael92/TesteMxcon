@@ -10,13 +10,13 @@ public class ClientDTO implements Serializable {
 
 	private Long id;
 	private String name;
-	private Long cpf;
+	private String cpf;
 
 	public ClientDTO() {
 
 	}
 
-	public ClientDTO(Long id, String name, Long cpf) {
+	public ClientDTO(Long id, String name, String cpf) {
 		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
@@ -44,11 +44,11 @@ public class ClientDTO implements Serializable {
 		this.name = name;
 	}
 
-	public Long getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(Long cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 

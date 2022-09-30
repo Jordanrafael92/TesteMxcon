@@ -1,0 +1,13 @@
+INSERT INTO tb_cliente(name, cpf) VALUES ('Shelley Simmons', 70366990004);
+INSERT INTO tb_cliente(name, cpf) VALUES ('Bethany Robinson', 41417543078);
+INSERT INTO tb_cliente(name, cpf) VALUES ('Stephen Rodriguez', 74806827002);
+INSERT INTO tb_cliente(name, cpf) VALUES ('James Garrett', 91473265088);
+INSERT INTO tb_cliente(name, cpf) VALUES ('Jose Martin', 82679206096);
+INSERT INTO tb_cliente(name, cpf) VALUES ('Sarah Williams', 14491317003);
+INSERT INTO tb_cliente(name, cpf) VALUES ('Kevin Morris', 59768824042);
+INSERT INTO tb_cliente(name, cpf) VALUES ('Michele Mitchell', 15431160001);
+INSERT INTO tb_cliente(name, cpf) VALUES ('Randall Kane', 89950210046);
+INSERT INTO tb_cliente(name, cpf) VALUES ('Shawn Ray', 86684680063);
+INSERT INTO tb_empresa(name, cnpj) VALUES ('Modest MaxCon', 24276338000139);
+INSERT INTO tb_empresa(name, cnpj) VALUES ('Reload MaxCon', 61541173000101);
+INSERT INTO tb_empresa(name, cnpj) VALUES ('MaxCon Little', 50315360000150);

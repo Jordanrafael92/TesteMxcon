@@ -24,13 +24,13 @@ public class Client implements Serializable {
 	private String name;
 	
 	@Column(unique = true)
-	private Long cpf;
+	private String cpf;
 
 	public Client() {
 		
 	}
 	
-	public Client(Long id, String name, Long cpf) {
+	public Client(Long id, String name, String cpf) {
 		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
@@ -52,11 +52,11 @@ public class Client implements Serializable {
 		this.name = name;
 	}
 
-	public Long getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(Long cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 

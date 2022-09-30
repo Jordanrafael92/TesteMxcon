@@ -7,5 +7,6 @@ import com.company.maxicon.entities.Client;
 
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long>{
-
+	
+	Client findByCpf(String cpf);
 }
