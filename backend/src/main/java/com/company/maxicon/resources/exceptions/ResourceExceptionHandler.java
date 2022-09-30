@@ -20,7 +20,7 @@ public class ResourceExceptionHandler {
 		StandardError err = new StandardError();
 		err.setTimestamp(Instant.now());
 		err.setStatus(status.value());
-		err.setError("Registro não encontrado na base de dados.");
+		err.setError("Mensagens de Validação");
 		err.setMessage(e.getMessage());
 		return ResponseEntity.status(status).body(err);
 	}

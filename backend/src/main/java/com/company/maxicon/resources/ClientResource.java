@@ -1,7 +1,6 @@
 package com.company.maxicon.resources;
 
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.company.maxicon.dto.ClientDTO;
-import com.company.maxicon.entities.Client;
-import com.company.maxicon.repositories.ClientRepository;
-import com.company.maxicon.resources.exceptions.FieldMessage;
 import com.company.maxicon.services.ClientService;
 
 @RestController
@@ -28,9 +24,6 @@ public class ClientResource {
 
 	@Autowired
 	private ClientService service;
-
-	@Autowired
-	private ClientRepository repository;
 
 	@GetMapping
 	public ResponseEntity<List<ClientDTO>> findAll() {
@@ -46,18 +39,10 @@ public class ClientResource {
 
 	@PostMapping
 	public ResponseEntity<ClientDTO> insert(@RequestBody ClientDTO dto) {
-		//List<FieldMessage> list = new ArrayList<>();
-		//Client client = repository.findByCpf(dto.getCpf());
-		/*if (client != null) {
-			 list.add(new FieldMessage("cpf", "CPF já existe"));
-			 return null;
-		} else {*/
-
-			dto = service.insert(dto);
+		dto = service.insert(dto);
 			URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(dto.getId())
 					.toUri();
 			return ResponseEntity.created(uri).body(dto);
-		//}
 	}
 
 	@PutMapping(value = "/{id}")

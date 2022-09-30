@@ -8,4 +8,5 @@ import com.company.maxicon.entities.Company;
 @Repository
 public interface CompanyRepository extends JpaRepository<Company, Long>{
 
+	Company findByCnpj(String cnpj);
 }

@@ -24,13 +24,13 @@ public class Company implements Serializable {
 	private String name;
 	
 	@Column(unique = true)
-	private Long cnpj;
+	private String cnpj;
 	
 	public Company() {
 		
 	}
 
-	public Company(Long id, String name, Long cnpj) {
+	public Company(Long id, String name, String cnpj) {
 		this.id = id;
 		this.name = name;
 		this.cnpj = cnpj;
@@ -52,11 +52,11 @@ public class Company implements Serializable {
 		this.name = name;
 	}
 
-	public Long getCnpj() {
+	public String getCnpj() {
 		return cnpj;
 	}
 
-	public void setCnpj(Long cnpj) {
+	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
 

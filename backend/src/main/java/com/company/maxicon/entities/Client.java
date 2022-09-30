@@ -1,13 +1,19 @@
 package com.company.maxicon.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -76,5 +82,16 @@ public class Client implements Serializable {
 		Client other = (Client) obj;
 		return Objects.equals(id, other.id);
 	}
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "tb_empresa_cliente",
+		joinColumns = @JoinColumn(name = "cliente_id"),
+		inverseJoinColumns = @JoinColumn(name = "empresa_id"))
+	private Set<Company> companies = new HashSet<>();
+	
+	public Set<Company> getCompanies() {
+		return companies;
+	}
+	
 	
 }

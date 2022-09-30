@@ -1,8 +1,12 @@
 package com.company.maxicon.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 import com.company.maxicon.entities.Client;
+import com.company.maxicon.entities.Company;
 
 public class ClientDTO implements Serializable {
 
@@ -11,6 +15,8 @@ public class ClientDTO implements Serializable {
 	private Long id;
 	private String name;
 	private String cpf;
+	
+	private List<CompanyDTO> companies = new ArrayList<>();
 
 	public ClientDTO() {
 
@@ -51,5 +57,20 @@ public class ClientDTO implements Serializable {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+	
+	public ClientDTO(Client entity, Set<Company> companies) {
+		this(entity);
+		companies.forEach(cli -> this.companies.add(new CompanyDTO(cli)));
+	}
+
+	public List<CompanyDTO> getCompanies() {
+		return companies;
+	}
+
+	public void setCompanies(List<CompanyDTO> companies) {
+		this.companies = companies;
+	}
+	
+	
 
 }

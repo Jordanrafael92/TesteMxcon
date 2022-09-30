@@ -40,10 +40,15 @@ public class CompanyService {
 
 	@Transactional
 	public CompanyDTO insert(CompanyDTO dto) {
-		Company entity = new Company();
-		entity.setName(dto.getName());
-		entity = repository.save(entity);
-		return new CompanyDTO(entity);
+		Company company = repository.findByCnpj(dto.getCnpj());
+		if (company != null) {
+			throw new ResourceNotFoundException("CNPJ já cadastrado!");
+		} else {
+			Company entity = new Company();
+			entity.setName(dto.getName());
+			entity = repository.save(entity);
+			return new CompanyDTO(entity);
+		}
 	}
 
 	@Transactional
