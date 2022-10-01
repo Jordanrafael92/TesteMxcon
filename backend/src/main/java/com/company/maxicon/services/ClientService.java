@@ -52,7 +52,7 @@ public class ClientService {
 		} else {
 			copyDtoToEntity(dto, entity);
 			entity = repository.save(entity);
-			return new ClientDTO(entity);
+			return new ClientDTO(entity, entity.getCompanies());
 		}
 	}
 
@@ -72,9 +72,9 @@ public class ClientService {
 	public ClientDTO update(Long id, ClientDTO dto) {
 		try {
 			Client entity = repository.getOne(id);
-			entity.setName(dto.getName());
+			copyDtoToEntity(dto, entity);
 			entity = repository.save(entity);
-			return new ClientDTO(entity);
+			return new ClientDTO(entity, entity.getCompanies());
 		} catch (EntityNotFoundException e) {
 			throw new ResourceNotFoundException("Código não encontrado " + id);
 		}

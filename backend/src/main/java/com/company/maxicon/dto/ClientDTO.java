@@ -71,6 +71,4 @@ public class ClientDTO implements Serializable {
 		this.companies = companies;
 	}
 	
-	
-
 }

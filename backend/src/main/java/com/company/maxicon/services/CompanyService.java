@@ -34,9 +34,8 @@ public class CompanyService {
 	public CompanyDTO findById(Long id) {
 		Optional<Company> obj = repository.findById(id);
 		Company entity = obj.orElseThrow(() -> new ResourceNotFoundException("Empresa não encontrada!"));
-		return new CompanyDTO(entity);
+		return new CompanyDTO(entity, entity.getClients());
 	}
-
 
 	@Transactional
 	public CompanyDTO insert(CompanyDTO dto) {
